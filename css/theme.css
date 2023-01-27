@@ -1,0 +1,67 @@
+/* Global Variables */
+:root {
+    /* Colours */
+    --r-primary: #1282E9;
+    --r-secondary: #12C2E9;
+    --r-ternary: #B112E9;
+    --r-warning: #E9BA12;
+    --r-danger: #E9126C;
+    --r-black: #444444;
+
+    --r-grad-full: linear-gradient(90deg, var(--r-secondary) 0%, var(--r-primary) 50%, var(--r-ternary) 100%);
+    --r-grad-blue: linear-gradient(90deg, var(--r-primary) 0%, var(--r-secondary) 100%);
+    --r-grad-pink: linear-gradient(90deg, var(--r-ternary) 0%, var(--r-danger) 100%);
+    --r-grad-orange: linear-gradient(90deg, var(--r-danger) 0%, var(--r-warning) 100%);
+
+    --footer-color: #f8f8f8;
+
+    /* Override bootstrap */
+    --bs-font-sans-serif: "Open Sans", system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --bs-body-color: var(--r-black);
+
+    /* Other */
+    --footer-height: 10rem;
+}
+
+/* Page container */
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Navbar */
+#navbar-logo {
+    height: 4rem;
+}
+#navbar-main {
+    flex-direction: row-reverse;
+}
+#navbar-main .notification-badge {
+    top: 5px;
+    left: 25px;
+}
+
+/* main */
+main {
+    padding-bottom: calc(var(--footer-height) + 3rem);
+}
+
+/* Footer */
+footer {
+    display: flex;
+    align-items:center;
+    height: var(--footer-height);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color:var(--footer-color);
+}
+
+/* Custom elements */
+.gradient-main {
+    height:10px;
+    width:100%;
+    background: var(--r-primary);
+    background: var(--r-grad-full);
+}
+
