@@ -1,3 +1,4 @@
+/* Global Variables */
 :root {
     --r-primary: #1282E9;
     --r-secondary: #12C2E9;
@@ -5,4 +6,21 @@
     --r-warning: #E9BA12;
     --r-danger: #E9126C;
     --r-black: #444444;
+}
+
+
+/* Navbar */
+#navbar-logo {
+    height: 4rem;
+}
+#navbar-main {
+    flex-direction: row-reverse;
+}
+
+/* Custom elements */
+.gradient-main {
+    height:10px;
+    width:100%;
+    background: var(--r-primary);
+    background: linear-gradient(90deg, var(--r-secondary) 0%, var(--r-primary) 50%, var(--r-ternary) 100%);
 }
