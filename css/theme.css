@@ -7,13 +7,15 @@
     --r-warning: #E9BA12;
     --r-danger: #E9126C;
     --r-black: #444444;
+    --r-white: #f8f8f8;
+    --r-gray: #bbbbbb;
 
     --r-grad-full: linear-gradient(90deg, var(--r-secondary) 0%, var(--r-primary) 50%, var(--r-ternary) 100%);
-    --r-grad-blue: linear-gradient(90deg, var(--r-primary) 0%, var(--r-secondary) 100%);
+    --r-grad-blue: linear-gradient(90deg, var(--r-secondary) 0%, var(--r-primary) 100%);
     --r-grad-pink: linear-gradient(90deg, var(--r-ternary) 0%, var(--r-danger) 100%);
     --r-grad-orange: linear-gradient(90deg, var(--r-danger) 0%, var(--r-warning) 100%);
 
-    --footer-color: #f8f8f8;
+    --footer-color: var(--r-white);
 
     /* Override bootstrap */
     --bs-font-sans-serif: "Open Sans", system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
@@ -21,6 +23,12 @@
 
     /* Other */
     --footer-height: 10rem;
+}
+/* Other variables to override bootstrap */
+@media screen and (max-width: 991px) {
+    .dropdown-menu {
+        --bs-dropdown-border-width: 0;
+    }
 }
 
 /* Page container */
@@ -64,4 +72,51 @@ footer {
     background: var(--r-primary);
     background: var(--r-grad-full);
 }
+
+/* Other Styling */
+input, select, textarea {
+    border-radius:1rem;
+    border: 1px solid var(--r-gray);
+    padding:0 0.5rem;
+    margin:0.2rem;
+}
+.button {
+    /* Fallback color value */
+    --r-color: var(--r-gray);
+    --r-color-text: var(--r-black);
+    border-radius: 1rem;
+    padding: 0 2rem;
+    border: none;
+    background-color: var(--r-color);
+    color: var(--r-white);
+    box-sizing: border-box;
+}
+.button.neg {
+    border: 1px solid var(--r-color);
+    background-color: unset;
+    color: var(--r-color);
+    color: var(--r-color-text);
+}
+
+.button.button-primary {
+    --r-color: var(--r-primary);
+    --r-color-text: var(--r-primary);
+}
+.button.button-secondary {
+    --r-color: var(--r-secondary);
+    --r-color-text: var(--r-secondary);
+}
+.button.button-ternary {
+    --r-color: var(--r-ternary);
+    --r-color-text: var(--r-prternaryimary);
+}
+.button.button-warning {
+    --r-color: var(--r-warning);
+    --r-color-text: var(--r-warning);
+}
+.button.button-danger {
+    --r-color: var(--r-danger);
+    --r-color-text: var(--r-danger);
+}
+
 
