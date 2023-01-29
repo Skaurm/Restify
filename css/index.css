@@ -1,0 +1,17 @@
+.listing-item .card-img-top {
+    background-position:center;
+    background-size: cover;
+    height:200px;
+    width:100%;
+}
+.listing-item {
+    padding: 0;
+}
+#results-container>div {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+#results-container>div a {
+    text-decoration: none;
+    color:var(--r-black);
+}

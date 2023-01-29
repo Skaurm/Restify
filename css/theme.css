@@ -74,7 +74,7 @@ footer {
 }
 
 /* Other Styling */
-input, select, textarea {
+input, select, textarea, button {
     border-radius:1rem;
     border: 1px solid var(--r-gray);
     padding:0 0.5rem;
