@@ -290,12 +290,12 @@
         for (const listing of data){
           $("#results-container").append(`
           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-            <a href="#">
+            <a href="listing-details.html">
               <div class="card listing-item">
                 <div style="background-image: url('images/houses-exterior/${listing.id + 1}.jpg')" class="card-img-top"></div>
                 <div class="card-body">
                   <h4 class="card-title">${listing.location}</h4>
-                  <p class="text-muted"><i class="fa-solid fa-star"></i>${listing.rating}</p>
+                  <p class="text-muted"><i class="fa-solid fa-star"></i> ${listing.rating}</p>
                   <p class="card-text">${listing.distance}km away</p>
                   <h5 class="card-title">$${listing.cost} CAD / night</h5>
                 </div>
