@@ -71,7 +71,7 @@
         </header>
         <main>
             <div class="container">
-                <div class="row">
+                <div class="row sticky-container">
 
                     <!-- Title -->
 
@@ -89,7 +89,9 @@
                             <div class="col-sm-12 col-md-6">
                                 <div class="row">
                                     <div class="img-small col-sm-12 col-md-6" style="background-image:url(images/houses-interior/1.jpg)"></div>
-                                    <div class="img-small  col-sm-12 col-md-6" style="background-image:url(images/houses-interior/2.jpg)"></div>
+                                    <div class="img-small  col-sm-12 col-md-6 text-end" style="background-image:url(images/houses-interior/2.jpg)">
+                                      <a class="edit-icon hide-if-state-1 hide-if-state-2" style="cursor: pointer"><i class="fa-solid fa-pen-to-square"></i></a>  
+                                    </div>
                                     <div class="img-small  col-sm-12 col-md-6" style="background-image:url(images/houses-interior/3.jpg)"></div>
                                     <div class="img-small  col-sm-12 col-md-6" style="background-image:url(images/houses-interior/4.jpg)"></div>
                                 </div>
@@ -99,7 +101,7 @@
 
                     <!-- Rate and comment -->
 
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 hide-if-state-1 hide-if-state-3">
                         <div class="row" id="comment-rating">
                             <div class="col-sm-12 col-md-6 text-start text-md-end">
                                 <h3>Rate your stay and leave a comment!</h3>
@@ -127,9 +129,9 @@
 
                     <!-- Left Side -->
 
-                    <div class="col-sm-12 col-md-6">
+                    <div class="col-sm-12 col-md-8">
                         <!-- About the host -->
-                        <section>
+                        <section class="hide-if-state-3">
                             <div class="profile-picture-container">
                                 <img class="profile-picture" src="images/verstappen.jpg" alt="Host profile picture">
                             </div>
@@ -139,7 +141,8 @@
                             </div>
                         </section>
                         <section>
-                            <h3>Description</h3>
+                          <div class="editable">
+                            <h3>Description <a class="edit-text edit-icon hide-if-state-1 hide-if-state-2" style="cursor: pointer"><i class="fa-solid fa-pen-to-square"></i></a></h3>
                             
                             <p>Incredible panoramic views of lake & mountains. Year round sauna and hot tub, seasonally open heated pool. A breathtaking 3 level 6 bedroom chalet. I cater to families that want to experience an exclusive private Okanagan vacation in the #1 ranked ABNB. Several in & out private lounging areas, kids areas for playing, mostly pet friendly with fee. No cleaning fees w/ your help. Please contact me prior to booking.</p>
 
@@ -156,9 +159,9 @@
                             <p>**NO VEHICLES ALLOWED TO PARK ACROSS THE STREET!! NO EXCEPTIONS. The driveway is steep with parking at the bottom and additional parking stalls above.</p>
                                 
                             <p>Pet cleaning fees: maximum of $30 per day per pet does not void the departure day cleaning outlined above. Really our only concern is pet hair. So non shedding dogs we can lower the rates which we ask you to etransfer us or leave cash at the Casa. No matter how amazing you are at keeping the house clean inevitably we have to vacuum baseboards, move furniture etc as some of our non pet living guests are intolerant of a single hair... no kidding. It’s rather stressful! Contact us to work out a fair fee to ask for.</p>
-
+                          </div>
                         </section>
-                        <section id="amenities">
+                        <section class="hide-if-state-3 amenities">
                             <h3>Amenities</h3>
 
                             <div class="row">
@@ -177,19 +180,151 @@
                                     <h5><i class="fa-solid fa-house"></i> Patio or balcony</h5>
                                 </div>
                             </div>
-
                         </section>
+                        <section class="hide-if-state-1 hide-if-state-2 amenities">
+                          <h3>Amenities <a class="edit-amenities edit-icon" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#amenities-modal"><i class="fa-solid fa-pen-to-square"></i></a></h3>
+
+                          <div class="row">
+                              <div class="col-sm-12 col-md-6">
+                                  <h5><i class="fa-solid fa-wifi"></i> Wifi</h5>
+                                  <h5><i class="fa-solid fa-kitchen-set"></i> Kitchen</h5>
+                                  <h5><i class="fa-solid fa-laptop"></i> Dedicated workspace</h5>
+                                  <h5><i class="fa-solid fa-tv"></i> TV</h5>
+                                  <h5><i class="fa-solid fa-bath"></i> Bathtub</h5>
+                              </div>
+                              <div class="col-sm-12 col-md-6">
+                                  <h5><i class="fa-solid fa-car"></i> Free parking</h5>
+                                  <h5><i class="fa-solid fa-droplet"></i> Washer</h5>
+                                  <h5><i class="fa-solid fa-fire"></i> Dryer</h5>
+                                  <h5><i class="fa-solid fa-temperature-full"></i> Air conditioning</h5>
+                                  <h5><i class="fa-solid fa-house"></i> Patio or balcony</h5>
+                              </div>
+                          </div>
+                      </section>
                     </div>
 
                     <!-- Right Side (browsing user) -->
 
-                    <div class="col-sm-12 col-md-6"></div>
+                    <div class="col-sm-12 col-md-4 hide-if-state-3" id="reserve-listing">
+                      <div>
+                        <h3>$320 CAD <span class="text-muted">per night</span></h3>
+
+                        <div>
+                          <label for="reserve-start-date">Check in</label>
+                          <input id="reserve-start-date" type="date" name="reserve-start-date">
+                        </div>
+                        <div>
+                          <label for="reserve-end-date">Check out</label>
+                          <input id="reserve-end-date" type="date" name="reserve-end-date">
+                        </div>
+
+                        <label for="reserve-guests">Guests</label>
+                        <select id="reserve-guests" name="reserve-guests">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+
+                        <hr>
+
+                        <table class="full-table">
+                          <tr>
+                            <td>Subtotal<span id="reserve-nights"></span></td>
+                            <td id="reserve-subtotal">---</td>
+                          </tr>
+                          <tr class="text-muted">
+                            <td>Cleaning Fee</td>
+                            <td id="reserve-cleaning-fee">---</td>
+                          </tr>
+                          <tr class="text-muted">
+                            <td>Service Fee</td>
+                            <td id="reserve-service-fee">---</td>
+                          </tr>
+                          <tr class="text-muted">
+                            <td>Taxes</td>
+                            <td id="reserve-taxes">---</td>
+                          </tr>
+                          <tr>
+                            <td><h3>Total</h3></td>
+                            <td><h3 id="reserve-total">---</h3></td>
+                          </tr>
+                        </table>
+
+                        <hr>
+
+                        <button id="reserve-book" class="button button-primary d-block w-100 m-0">Book Now</button>
+                      </div>
+
+                    </div>
 
                     <!-- Right Side (host) -->
 
-                    <div class="col-sm-12 col-md-6"></div>
+                    <div class="col-sm-12 col-md-4 hide-if-state-1 hide-if-state-2"></div>
 
                 </div>
+            </div>
+
+            <!-- Edit Modal -->
+            <div id="edit-modal" class="modal" tabindex="-1">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Edit Content</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <textarea name="" id="" cols="30" rows="20" class="d-block w-100" style="height: 70vh"></textarea>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="button neg" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="button button-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Amenities Modal -->
+            <div id="amenities-modal" class="modal" tabindex="-1">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Edit Amenities</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-6">
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-wifi"></i> Wifi</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-kitchen-set"></i> Kitchen</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-laptop"></i> Dedicated workspace</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-tv"></i> TV</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-bath"></i> Bathtub</label></p>
+                          <p><label><input type="checkbox"> <i class="fa-solid fa-camera"></i> Security Cameras</label></p>
+                          <p><label><input type="checkbox"> <i class="fa-solid fa-water"></i> Waterfront Views</label></p>
+                      </div>
+                      <div class="col-sm-12 col-md-6">
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-car"></i> Free parking</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-droplet"></i> Washer</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-fire"></i> Dryer</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-temperature-full"></i> Air conditioning</label></p>
+                          <p><label><input type="checkbox"> <i class="fa-solid fa-burger"></i> BBQ Grill</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-house"></i> Patio or balcony</label></p>
+                          <p><label><input type="checkbox"> <i class="fa-solid fa-sailboat"></i> Boat</label></p>
+                      </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="button neg" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="button button-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
             </div>
         </main>
         <footer class="border-top">
@@ -213,5 +348,45 @@
         crossorigin="anonymous">
     </script>
     <script src="js/common.js"></script>
+
+    <script>
+      // Generate prices
+      const nightlyCost = 320;
+
+      $("#reserve-end-date, #reserve-start-date").on("change", function(){
+        let date1val = $("#reserve-end-date").val();
+        let date2val = $("#reserve-start-date").val();
+
+        if(date1val == "" || date2val == "") {
+          $("#reserve-nights").html("");
+          $("#reserve-subtotal").html("---");
+          $("#reserve-cleaning-fee").html("---");
+          $("#reserve-service-fee").html("---");
+          $("#reserve-taxes").html("---");
+          $("#reserve-total").html("---");
+
+          return;
+        }
+
+        let date1 = new Date(date1val)
+        let date2 = new Date(date2val)
+
+        let nights = Math.ceil((date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
+
+        let subtotal = nights * nightlyCost;
+        let cleaningFee = 280;
+        let serviceFee = Math.round(100 * (50 * (nights ** (1/2)))) / 100;
+        let taxes = Math.round((subtotal + cleaningFee + serviceFee) * 0.12 * 100) / 100;
+        let total = subtotal + cleaningFee + serviceFee + taxes;
+
+        $("#reserve-nights").html(" (" + nights + " nights)");
+        $("#reserve-subtotal").html("$" + convertDecimalToPrice(subtotal));
+        $("#reserve-cleaning-fee").html("$" + convertDecimalToPrice(cleaningFee));
+        $("#reserve-service-fee").html("$" + convertDecimalToPrice(serviceFee));
+        $("#reserve-taxes").html("$" + convertDecimalToPrice(taxes));
+        $("#reserve-total").html("$" + convertDecimalToPrice(total));
+      })
+
+    </script>
 </body>
 </html>
