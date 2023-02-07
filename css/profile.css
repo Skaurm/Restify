@@ -1,0 +1,79 @@
+.avatar{
+    object-fit: cover;
+        width: 245px;
+        height: 245px;
+        box-shadow: 0 0 10px 0 rgba(255,255,255,.35);
+        border-radius: 200px;
+        z-index: 0;
+        padding: 0rem;
+        border: 4px solid var(--r-primary);
+        border-radius: 200px;
+    }
+.row{
+    padding: 1rem;
+}
+.edit-container{
+    padding: 1rem;
+}
+.row button{
+    height: 2rem;
+}
+
+.listing-item .card-img-top {
+    background-position:center;
+    background-size: cover;
+    height:200px;
+    width:100%;
+}
+.listing-item {
+    padding: 0;
+}
+#results-container>div {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+#results-container>div a {
+    text-decoration: none;
+    color:var(--r-black);
+}
+
+.button.button-ternary {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+#reservations-container>div {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+#reservations-container>div a {
+    text-decoration: none;
+    color:var(--r-black);
+}
+
+#reservations-container> div a div .button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 10px;
+    width: 125px;
+}
+
+#cancellations-container>div {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+#cancellations-container>div a {
+    text-decoration: none;
+    color:var(--r-black);
+}
+
+#cancellations-container> div a div .button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 10px;
+    width: 125px;
+}
