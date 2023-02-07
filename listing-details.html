@@ -75,14 +75,14 @@
 
                     <!-- Title -->
 
-                    <div class="col-sm-12">
+                    <section class="col-sm-12">
                         <h2>Perfect countryside getaway near Vernon</h2>
                         <p><i class="fa-solid fa-star"></i> 4.9 <span class="text-inline-divider">•</span> Vernon, Canada</p>
-                    </div>
+                    </section>
 
                     <!-- Collage -->
 
-                    <div class="col-sm-12 collage">
+                    <section class="col-sm-12 collage">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 img-large" style="background-image:url(images/houses-exterior/4.jpg)">
                             </div>
@@ -97,14 +97,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
                     <!-- Rate and comment -->
 
-                    <div class="col-sm-12 hide-if-state-1 hide-if-state-3">
+                    <section class="col-sm-12 hide-if-state-1 hide-if-state-3">
                         <div class="row" id="comment-rating">
                             <div class="col-sm-12 col-md-6 text-start text-md-end">
-                                <h3>Rate your stay and leave a comment!</h3>
+                                <h3>Rate your stay and leave a review!</h3>
                                 <p>Help fellow users by telling us about your stay!</p>
                                 <p>
                                     <select name="rating" id="rating">
@@ -125,14 +125,54 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </section>
+
+                    <!-- Add available dates -->
+                    <section class="hide-if-state-1 hide-if-state-2">
+                      <div id="edit-availabilities">
+                        <h3 class="text-start text-lg-center">Set Dates and Times</h3>
+                        <div class="row">
+                          <div class="col-sm-12 col-md-6 text-start text-lg-end">
+                            <div>
+                              <label for="set-start-date">From</label>
+                              <br class="d-lg-none">
+                              <input id="set-start-date" type="date" name="set-start-date">
+                            </div>
+                            <div>
+                              <label for="set-end-date">To</label>
+                              <br class="d-lg-none">
+                              <input id="set-end-date" type="date" name="set-end-date">
+                            </div>
+                          </div>
+                          <div class="col-sm-12 col-md-6">
+                            <div>
+                              <label for="set-action">Action</label>
+                              <br class="d-lg-none">
+                              <select name="set-action" id="set-action">
+                                <option value="add">Add or edit night(s)</option>
+                                <option value="remove">Remove nights</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label for="set-cost">Cost</label>
+                              <br class="d-lg-none">
+                              <input name="set-cost" id="set-cost" type="number" style="width: 100px;">
+                            </div>
+                          </div>
+                          <div class="col-sm-12 text-lg-center text-start">
+                            <hr style="border: 1px solid #fff">
+                            <button class="button neg">Apply</button>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
 
                     <!-- Left Side -->
 
                     <div class="col-sm-12 col-md-8">
                         <!-- About the host -->
                         <section class="hide-if-state-3">
-                            <div class="profile-picture-container">
+                            <div class="profile-picture-container profile-picture-large">
                                 <img class="profile-picture" src="images/verstappen.jpg" alt="Host profile picture">
                             </div>
                             <div>
@@ -140,6 +180,7 @@
                                 <p><a href="mailto:max.verstappen.420@gmail.com">max.verstappen.420@gmail.com</a></p>
                             </div>
                         </section>
+                        <!-- Description -->
                         <section>
                           <div class="editable">
                             <h3>Description <a class="edit-text edit-icon hide-if-state-1 hide-if-state-2" style="cursor: pointer"><i class="fa-solid fa-pen-to-square"></i></a></h3>
@@ -161,28 +202,9 @@
                             <p>Pet cleaning fees: maximum of $30 per day per pet does not void the departure day cleaning outlined above. Really our only concern is pet hair. So non shedding dogs we can lower the rates which we ask you to etransfer us or leave cash at the Casa. No matter how amazing you are at keeping the house clean inevitably we have to vacuum baseboards, move furniture etc as some of our non pet living guests are intolerant of a single hair... no kidding. It’s rather stressful! Contact us to work out a fair fee to ask for.</p>
                           </div>
                         </section>
-                        <section class="hide-if-state-3 amenities">
-                            <h3>Amenities</h3>
-
-                            <div class="row">
-                                <div class="col-sm-12 col-md-6">
-                                    <h5><i class="fa-solid fa-wifi"></i> Wifi</h5>
-                                    <h5><i class="fa-solid fa-kitchen-set"></i> Kitchen</h5>
-                                    <h5><i class="fa-solid fa-laptop"></i> Dedicated workspace</h5>
-                                    <h5><i class="fa-solid fa-tv"></i> TV</h5>
-                                    <h5><i class="fa-solid fa-bath"></i> Bathtub</h5>
-                                </div>
-                                <div class="col-sm-12 col-md-6">
-                                    <h5><i class="fa-solid fa-car"></i> Free parking</h5>
-                                    <h5><i class="fa-solid fa-droplet"></i> Washer</h5>
-                                    <h5><i class="fa-solid fa-fire"></i> Dryer</h5>
-                                    <h5><i class="fa-solid fa-temperature-full"></i> Air conditioning</h5>
-                                    <h5><i class="fa-solid fa-house"></i> Patio or balcony</h5>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="hide-if-state-1 hide-if-state-2 amenities">
-                          <h3>Amenities <a class="edit-amenities edit-icon" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#amenities-modal"><i class="fa-solid fa-pen-to-square"></i></a></h3>
+                        <!-- Amenities -->
+                        <section class="amenities">
+                          <h3>Amenities <a class="edit-amenities edit-icon hide-if-state-1 hide-if-state-2 " style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#amenities-modal"><i class="fa-solid fa-pen-to-square"></i></a></h3>
 
                           <div class="row">
                               <div class="col-sm-12 col-md-6">
@@ -200,12 +222,24 @@
                                   <h5><i class="fa-solid fa-house"></i> Patio or balcony</h5>
                               </div>
                           </div>
-                      </section>
+                        </section>
+                        <!-- Comments -->
+                        <section>
+                          <hr>
+                          <h3><i class="fa-solid fa-star"></i> 4.91 <span class="text-inline-divider">•</span> 3 Comments</h3>
+
+                          <div class="row" id="comments-container">
+
+                            <!-- Add comments here -->
+                            
+                          </div>
+                        </section>
+
+                      
                     </div>
 
                     <!-- Right Side (browsing user) -->
-
-                    <div class="col-sm-12 col-md-4 hide-if-state-3" id="reserve-listing">
+                    <section class="col-sm-12 col-md-4 hide-if-state-3" id="reserve-listing">
                       <div>
                         <h3>$320 CAD <span class="text-muted">per night</span></h3>
 
@@ -217,6 +251,7 @@
                           <label for="reserve-end-date">Check out</label>
                           <input id="reserve-end-date" type="date" name="reserve-end-date">
                         </div>
+                        <div id="reserve-is-available" style="color: var(--bs-green); font-size:0.8rem; display: none">Available for these dates!</div>
 
                         <label for="reserve-guests">Guests</label>
                         <select id="reserve-guests" name="reserve-guests">
@@ -262,11 +297,22 @@
                         <button id="reserve-book" class="button button-primary d-block w-100 m-0">Book Now</button>
                       </div>
 
-                    </div>
+                    </section>
 
                     <!-- Right Side (host) -->
-
-                    <div class="col-sm-12 col-md-4 hide-if-state-1 hide-if-state-2"></div>
+                    <section class="col-sm-12 col-md-4 hide-if-state-1 hide-if-state-2">
+                      <div>
+                        <h3>Reservations</h3>
+                        <h5>Approved</h5>
+                        <div class="row" id="reservations-approved-container">
+                          <!-- Reservations go here -->
+                        </div>
+                        <h5>Pending</h5>
+                        <div class="row" id="reservations-pending-container">
+                          <!-- Reservations go here -->
+                        </div>
+                      </div>
+                    </section>
 
                 </div>
             </div>
@@ -326,6 +372,24 @@
                 </div>
               </div>
             </div>
+            <!-- Comment Modal -->
+            <div id="comment-modal" class="modal" tabindex="-1">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Reply to comment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <textarea name="" id="" cols="30" rows="20" class="d-block w-100" style="height: 70vh; max-height: 200px"></textarea>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="button neg" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="button button-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
         </main>
         <footer class="border-top">
             <div class="container">
@@ -364,6 +428,7 @@
           $("#reserve-service-fee").html("---");
           $("#reserve-taxes").html("---");
           $("#reserve-total").html("---");
+          $("#reserve-is-available").css("display", "none");
 
           return;
         }
@@ -372,6 +437,18 @@
         let date2 = new Date(date2val)
 
         let nights = Math.ceil((date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
+
+        if(nights < 1) {
+          $("#reserve-nights").html("");
+          $("#reserve-subtotal").html("---");
+          $("#reserve-cleaning-fee").html("---");
+          $("#reserve-service-fee").html("---");
+          $("#reserve-taxes").html("---");
+          $("#reserve-total").html("---");
+          $("#reserve-is-available").css("display", "none");
+
+          return;
+        }
 
         let subtotal = nights * nightlyCost;
         let cleaningFee = 280;
@@ -385,7 +462,206 @@
         $("#reserve-service-fee").html("$" + convertDecimalToPrice(serviceFee));
         $("#reserve-taxes").html("$" + convertDecimalToPrice(taxes));
         $("#reserve-total").html("$" + convertDecimalToPrice(total));
+        $("#reserve-is-available").css("display", "block");
       })
+
+      // Hiding cost input
+      $("#set-action").on("change", function(){
+        if($("#set-action").val() == "add") {
+          $("#set-cost").closest("div").show();
+        }else {
+          $("#set-cost").closest("div").hide();
+        }
+      })
+
+      // Add comments
+      let comments = [
+        {
+          id: 1,
+          name: "Steph Jobless",
+          date: "January 2023",
+          comment: "The property was absolutely stunning. The view was gorgeous and the sunset was breathtaking. The home was cozy and modern and very clean. Lots of walking trails nearby. Looking forward to revisiting in the summer months."
+        }, 
+        {
+          id: 2,
+          name: "Will Doors",
+          date: "November 2022",
+          comment: "The view was spectacular. Love the house and the location. Excellent place to stay."
+        },
+        {
+          id: 3,
+          name: "Fej Zebos",
+          date: "September 2022",
+          comment: "We had a fantastic time! Would definitely return when the weather warms up to enjoy the water. Beds were very comfy and quiet location which was a nice change."
+        },
+        {
+          id: 4,
+          name: "Elongated Muskrat",
+          date: "August 2022",
+          comment: "Amazing views, amazing location, amazing all round and beautifully appointed. Would definitely recommend this place to anyone. Will definitely be back."
+        }
+      ]
+      let hostComments = [
+        {
+          replyToId: 1,
+          date: "January 2023",
+          comment: "Thanks for the review Steph! Unfortunately the house will not be available during the summer due to renovations, but feel free to browse other available times."
+        },
+      ]
+      for(const comment of comments) {
+        $("#comments-container").append(`
+        <div class="col-sm-12 comment" data-comment-id=${comment.id}>
+          <div>
+            <div class="profile-picture-container profile-picture-small">
+              <img class="profile-picture" src="images/techies/${comment.id}.jpg" alt="Reviewer profile picture">
+            </div>
+            <div>
+              <p class="m-0"><strong>${comment.name}</strong></p>
+              <p>${comment.date}</p>
+            </div>
+            <div class="col-sm-12">
+              <p class="comment-content">${comment.comment}</p>
+            </div>  
+            <div class="hide-if-state-1 hide-if-state-2 reply-container">
+              <button class="button neg" data-bs-toggle="modal" data-bs-target="#comment-modal"><i class="fa-solid fa-reply"></i> Reply</button>  
+            </div>
+          </div>
+        </div>
+        `)
+      }
+      if(hostReplied == 1) {
+        for(const comment of hostComments) {
+          let idToFind = comment.replyToId;
+          $("#comments-container>.comment").each(function(){
+              if($(this).attr("data-comment-id") == idToFind) {
+                  $(this).after(`
+                  <div class="col-sm-12 comment host-reply hide-if-comment-state-0">
+                    <div>
+                      <div class="profile-picture-container profile-picture-small">
+                        <img class="profile-picture" src="images/verstappen.jpg" alt="Host profile picture">
+                      </div>
+                      <div>
+                        <p class="m-0"><strong>Max Verstappen</strong></p>
+                        <p>${comment.date}</p>
+                      </div>
+                      <div class="col-sm-12">
+                        <p class="comment-content">${comment.comment}</p>
+                      </div>  
+                      <div class="hide-if-state-1 hide-if-state-3 reply-container">
+                        <button class="button neg" data-bs-toggle="modal" data-bs-target="#comment-modal"><i class="fa-solid fa-reply"></i> Reply</button>  
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+                  `);
+
+                  // Hode the reply button of the comment
+                  $(this).find(".reply-container").hide();
+              }
+          })
+        }
+      }
+
+      // Add reservations
+      let reservations = [
+      {
+          id: 1,
+          name: "Joe Biden",
+          date: "Feb 8 - Feb 12",
+          status: 2
+        }, 
+        {
+          id: 2,
+          name: "Donald Trump",
+          date: "Feb 16 - Feb 21",
+          status: 2
+        },
+        {
+          id: 3,
+          name: "Barack Obama",
+          date: "Mar 2 - Mar 12",
+          status: 2
+        },
+        {
+          id: 4,
+          name: "George W. Bush",
+          date: "Mar 15 - Mar 17",
+          status: 0
+        },
+        {
+          id: 5,
+          name: "Bill Clinton",
+          date: "Mar 21 - Mar 24",
+          status: 0
+        },
+        {
+          id: 6,
+          name: "George H. W. Bush",
+          date: "Mar 29 - Apr 2",
+          status: 0
+        },
+      ]
+      if(state != 1 && state != 2) {
+        for(const reservation of reservations) {
+          if(reservation.status == 2) {
+            $("#reservations-approved-container").append(`
+            <div class="col-sm-12" data-reservation-id=${reservation.id}>
+              <div class="row">
+                <div class="col-sm-10">
+                  <div class="profile-picture-container profile-picture-small">
+                    <img class="profile-picture" src="images/presidents/${reservation.id}.jpg" alt="Reviewer profile picture">
+                  </div>
+                  <div>
+                    <p class="m-0"><strong>${reservation.name}</strong></p>
+                    <p>${reservation.date}</p>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="dropdown">
+                    <button class="dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="profile">Go to profile</a></li>
+                      <li><a class="dropdown-item danger" href="#">Terminate Reservation</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `)
+          }else {
+            $("#reservations-pending-container").append(`
+            <div class="col-sm-12" data-reservation-id=${reservation.id}>
+              <div class="row">
+                <div class="col-sm-10">
+                  <div class="profile-picture-container profile-picture-small">
+                    <img class="profile-picture" src="images/presidents/${reservation.id}.jpg" alt="Reviewer profile picture">
+                  </div>
+                  <div>
+                    <p class="m-0"><strong>${reservation.name}</strong></p>
+                    <p>${reservation.date}</p>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="dropdown">
+                    <button class="dropdown-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="profile">Go to profile</a></li>
+                      <li><a class="dropdown-item primary" href="#">Approve Reservation</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `)
+          }
+        }
+      }
+        
 
     </script>
 </body>

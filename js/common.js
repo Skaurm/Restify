@@ -1,14 +1,24 @@
-// Hide/show different sections based on the role of the user who is viewing it:
-// - 0: Admin; view everything
-// - 1: A user who will be booking a listing
-// - 2: A user who has already booked the listing
-// - 3: A host
+/* 
+Hide/show different sections based on the role of the user who is viewing it:
+
+state:
+- 0: Admin; view everything (may break some layouts)
+- 1: A user who will be booking a listing
+- 2: A user who has already booked the listing
+- 3: A host
+
+hostReplied:
+- 0: The host has not yet replied to the user
+- 1: The host has replied to the user
+
+*/
 
 const state = 1;
+const hostReplied = 1;
+
 
 $("body").addClass("demo-user-state-" + state);
-
-
+$("body").addClass("demo-comment-state-" + hostReplied);
 
 // When a dropdown label is clicked, do not close
 $(".dropdown label").on("click", function(){

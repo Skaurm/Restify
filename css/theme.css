@@ -28,6 +28,9 @@
 .demo-user-state-1 .hide-if-state-1, .demo-user-state-2 .hide-if-state-2, .demo-user-state-3 .hide-if-state-3 {
     display:none;
 }
+.demo-comment-state-0 .hide-if-comment-state-0, .demo-comment-state-1 .hide-if-comment-state-1 {
+    display:none;
+}
 
 
 
@@ -41,7 +44,9 @@
     --bs-card-border-radius: 1rem;
     --bs-card-inner-border-radius: calc(1rem - 1px);
 }
-
+.modal {
+    --bs-modal-width: 800px;
+}
 /* Body starts off as invisible, then appears once all elements on the page are ready */
 body {
     opacity:0;
@@ -108,20 +113,6 @@ footer {
     padding: 0 0.5rem;
 }
 
-/* Other Styling */
-input, select, textarea, button {
-    border-radius:1rem;
-    border: 1px solid var(--r-gray);
-    padding:0 0.5rem;
-    margin:0.2rem;
-}
-textarea {
-    resize: none;
-    width:100%;
-}
-h1, h2, h3, h4, h5, h6 {
-    line-height: var(--bs-body-line-height);
-}
 .button {
     /* Fallback color value */
     --r-color: var(--r-gray);
@@ -181,6 +172,42 @@ h1, h2, h3, h4, h5, h6 {
 }
 .edit-icon:hover {
     color: #fff;
+}
+.dropdown-icon {
+    border: none;
+    background: none;
+    color: var(--r-black);
+}
+
+.primary {
+    color: var(--r-primary);
+}
+.secondary {
+    color: var(--r-secondary);
+}
+.ternary {
+    color: var(--r-ternary)
+}
+.danger {
+    color: var(--r-danger)
+}
+.warning {
+    color: var(--r-warning)
+}
+
+/* Other Styling */
+input, select, textarea, button {
+    border-radius:1rem;
+    border: 1px solid var(--r-gray);
+    padding:0 0.5rem;
+    margin:0.2rem;
+}
+textarea {
+    resize: none;
+    width:100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    line-height: var(--bs-body-line-height);
 }
 
 

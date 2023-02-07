@@ -35,20 +35,37 @@
 #comment-rating p, #comment-rating h3 {
     color:#fff;
 }
+
+#edit-availabilities {
+    background:var(--r-grad-orange);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 1rem;
+}
+#edit-availabilities label, #edit-availabilities h3 {
+    color:#fff;
+}
+
+.profile-picture-large {
+    --profile-picture-size: 4rem;
+}
+.profile-picture-small {
+    --profile-picture-size: 3rem;
+}
 .profile-picture-container {
     display:inline-block;
-    width:4rem;
+    width: var(--profile-picture-size);
     vertical-align: top;
 }
 .profile-picture-container+div {
-    width: calc(100% - 4rem - 5px);
+    width: calc(100% - var(--profile-picture-size) - 5px);
     display:inline-block;
     padding-left:10px
 }
 
 .profile-picture {
     border-radius:50%;
-    height:4rem;
+    height: var(--profile-picture-size);
     border:1px solid var(--r-gray);
 }
 .amenities i {
@@ -73,4 +90,24 @@
 }
 #reserve-book {
     zoom: 1.2
+}
+.comment {
+    margin-top:2rem;
+}
+.comment>div {
+    border-radius:1rem;
+    background-color: var(--r-primary);
+    color:#fff;
+    padding:1rem;
+}
+.comment .comment-content {
+    font-style: italic;
+}
+.comment.host-reply {
+    margin: 0;
+}
+.comment.host-reply>div {
+    margin-left: 100px;
+    background-color: var(--r-secondary);
+    margin-top: -1rem;
 }
