@@ -24,11 +24,27 @@
     /* Other */
     --footer-height: 10rem;
 }
+/* Variables used to hide/show elements based on user we are testing (see more in common.js) */
+.demo-user-state-1 .hide-if-state-1, .demo-user-state-2 .hide-if-state-2, .demo-user-state-3 .hide-if-state-3 {
+    display:none;
+}
+
+
+
 /* Other variables to override bootstrap */
 @media screen and (max-width: 991px) {
     .dropdown-menu {
         --bs-dropdown-border-width: 0;
     }
+}
+.card {
+    --bs-card-border-radius: 1rem;
+    --bs-card-inner-border-radius: calc(1rem - 1px);
+}
+
+/* Body starts off as invisible, then appears once all elements on the page are ready */
+body {
+    opacity:0;
 }
 
 /* Page container */
@@ -53,6 +69,9 @@
 main {
     padding-bottom: calc(var(--footer-height) + 3rem);
 }
+main>.container {
+    margin-top:15px;
+}
 
 /* Footer */
 footer {
@@ -72,6 +91,22 @@ footer {
     background: var(--r-primary);
     background: var(--r-grad-full);
 }
+.gradient-blue {
+    height:10px;
+    width:100%;
+    background: var(--r-primary);
+    background: var(--r-grad-blue);
+}
+.gradient-pink {
+    height:10px;
+    width:100%;
+    background: var(--r-ternary);
+    background: var(--r-grad-pink);
+}
+
+.text-inline-divider {
+    padding: 0 0.5rem;
+}
 
 /* Other Styling */
 input, select, textarea, button {
@@ -79,6 +114,13 @@ input, select, textarea, button {
     border: 1px solid var(--r-gray);
     padding:0 0.5rem;
     margin:0.2rem;
+}
+textarea {
+    resize: none;
+    width:100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    line-height: var(--bs-body-line-height);
 }
 .button {
     /* Fallback color value */
@@ -93,7 +135,7 @@ input, select, textarea, button {
 }
 .button.neg {
     border: 1px solid var(--r-color);
-    background-color: unset;
+    background-color: #fff;
     color: var(--r-color);
     color: var(--r-color-text);
 }
@@ -117,6 +159,28 @@ input, select, textarea, button {
 .button.button-danger {
     --r-color: var(--r-danger);
     --r-color-text: var(--r-danger);
+}
+.sticky-container {
+    position:relative;
+}
+.full-table {
+    width:100%;
+}
+.full-table td {
+    padding: 0.25rem 0;
+}
+.edit-icon {
+    font-size: 1.5rem;
+    width:2.5rem;
+    height:2.5rem;
+    text-align: center;
+    color: #fff;
+    display:inline-block;
+    border-radius: 50%;
+    background: var(--r-grad-orange)
+}
+.edit-icon:hover {
+    color: #fff;
 }
 
 

@@ -22,18 +22,322 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/listing-details.css">
 </head>
 <body>
     <div id="page-container">
         <header>
-            
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
+                <div class="container">
+                  <a class="navbar-brand" href="index.html">
+                    <img id="navbar-logo" src="images/logo_full.png" alt="Restify Logo">
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-main" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbar-main">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="my-units.html">My Rental Units</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fas fa-bell d-none d-lg-block"></i>
+                          <span class="d-block d-lg-none dropdown-toggle">Notifications</span>
+                          <span class="notification-badge position-absolute translate-middle badge rounded-pill bg-danger d-none d-lg-block">
+                            2
+                            <span class="visually-hidden">unread messages</span>
+                          </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Thing 1</a></li>
+                          <li><a class="dropdown-item" href="#">Thing 2</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Ryan Reynolds
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="profile.html">Edit profile</a></li>
+                          <li><a class="dropdown-item" href="authentication.html">Log out</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <div class="gradient-main"></div>
         </header>
         <main>
-            <h1>Hello World</h1>
+            <div class="container">
+                <div class="row sticky-container">
+
+                    <!-- Title -->
+
+                    <div class="col-sm-12">
+                        <h2>Perfect countryside getaway near Vernon</h2>
+                        <p><i class="fa-solid fa-star"></i> 4.9 <span class="text-inline-divider">•</span> Vernon, Canada</p>
+                    </div>
+
+                    <!-- Collage -->
+
+                    <div class="col-sm-12 collage">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 img-large" style="background-image:url(images/houses-exterior/4.jpg)">
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="row">
+                                    <div class="img-small col-sm-12 col-md-6" style="background-image:url(images/houses-interior/1.jpg)"></div>
+                                    <div class="img-small  col-sm-12 col-md-6 text-end" style="background-image:url(images/houses-interior/2.jpg)">
+                                      <a class="edit-icon hide-if-state-1 hide-if-state-2" style="cursor: pointer"><i class="fa-solid fa-pen-to-square"></i></a>  
+                                    </div>
+                                    <div class="img-small  col-sm-12 col-md-6" style="background-image:url(images/houses-interior/3.jpg)"></div>
+                                    <div class="img-small  col-sm-12 col-md-6" style="background-image:url(images/houses-interior/4.jpg)"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rate and comment -->
+
+                    <div class="col-sm-12 hide-if-state-1 hide-if-state-3">
+                        <div class="row" id="comment-rating">
+                            <div class="col-sm-12 col-md-6 text-start text-md-end">
+                                <h3>Rate your stay and leave a comment!</h3>
+                                <p>Help fellow users by telling us about your stay!</p>
+                                <p>
+                                    <select name="rating" id="rating">
+                                        <option value="5">★★★★★ 5 Stars</option>
+                                        <option value="4">★★★★☆ 4 Stars</option>
+                                        <option value="3">★★★☆☆ 3 Stars</option>
+                                        <option value="2">★★☆☆☆ 2 Stars</option>
+                                        <option value="1">★☆☆☆☆ 1 Star</option>
+                                    </select>
+                                </p>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <p>
+                                    <textarea name="comment" id="comment" cols="30" rows="4" placeholder="Write your comment here..."></textarea>
+                                </p>
+                                <p>
+                                    <button class="button neg">Submit</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Left Side -->
+
+                    <div class="col-sm-12 col-md-8">
+                        <!-- About the host -->
+                        <section class="hide-if-state-3">
+                            <div class="profile-picture-container">
+                                <img class="profile-picture" src="images/verstappen.jpg" alt="Host profile picture">
+                            </div>
+                            <div>
+                                <h4>Hosted by Max Verstappen</h4>
+                                <p><a href="mailto:max.verstappen.420@gmail.com">max.verstappen.420@gmail.com</a></p>
+                            </div>
+                        </section>
+                        <section>
+                          <div class="editable">
+                            <h3>Description <a class="edit-text edit-icon hide-if-state-1 hide-if-state-2" style="cursor: pointer"><i class="fa-solid fa-pen-to-square"></i></a></h3>
+                            
+                            <p>Incredible panoramic views of lake & mountains. Year round sauna and hot tub, seasonally open heated pool. A breathtaking 3 level 6 bedroom chalet. I cater to families that want to experience an exclusive private Okanagan vacation in the #1 ranked ABNB. Several in & out private lounging areas, kids areas for playing, mostly pet friendly with fee. No cleaning fees w/ your help. Please contact me prior to booking.</p>
+
+                            <p>Please note hot tub and sauna are available year round, outdoor pool is seasonal and typically opens in May and closes September but it’s only heated when practical contact me for exact details. The pool and hot tub are yours exclusively and privately. Unlike many other postings of a “resort” with shared areas with dozens of other condos, this is your personal resort. Beautiful gardens and yard, pool area, hot tub is below and accessible on lower level with stunning day and nighttime views. I strive to provide amazing value to amazing and respectful guests.</p>
+
+                            <p>I always keep a few essential condiments et al in the fridge, with lots of spices and cooking oils etc in the cupboards. Kitchen is well stocked. I strive to guests a home away from home experience.</p>
+
+                            <p>Please note loft and loft bedroom are a partial open concept to main floor below. Curtains may be drawn on loft windows to main floor but there is no door to close</p>
+
+                            <h5>Guest access</h5>
+
+                            <p>The home is all yours. You choose your personal access code for your stay. Arrive as you like, I will not disturb you. I will meet you at some point early in your stay to review pool operation and guidelines.</p>
+
+                            <p>**NO VEHICLES ALLOWED TO PARK ACROSS THE STREET!! NO EXCEPTIONS. The driveway is steep with parking at the bottom and additional parking stalls above.</p>
+                                
+                            <p>Pet cleaning fees: maximum of $30 per day per pet does not void the departure day cleaning outlined above. Really our only concern is pet hair. So non shedding dogs we can lower the rates which we ask you to etransfer us or leave cash at the Casa. No matter how amazing you are at keeping the house clean inevitably we have to vacuum baseboards, move furniture etc as some of our non pet living guests are intolerant of a single hair... no kidding. It’s rather stressful! Contact us to work out a fair fee to ask for.</p>
+                          </div>
+                        </section>
+                        <section class="hide-if-state-3 amenities">
+                            <h3>Amenities</h3>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <h5><i class="fa-solid fa-wifi"></i> Wifi</h5>
+                                    <h5><i class="fa-solid fa-kitchen-set"></i> Kitchen</h5>
+                                    <h5><i class="fa-solid fa-laptop"></i> Dedicated workspace</h5>
+                                    <h5><i class="fa-solid fa-tv"></i> TV</h5>
+                                    <h5><i class="fa-solid fa-bath"></i> Bathtub</h5>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <h5><i class="fa-solid fa-car"></i> Free parking</h5>
+                                    <h5><i class="fa-solid fa-droplet"></i> Washer</h5>
+                                    <h5><i class="fa-solid fa-fire"></i> Dryer</h5>
+                                    <h5><i class="fa-solid fa-temperature-full"></i> Air conditioning</h5>
+                                    <h5><i class="fa-solid fa-house"></i> Patio or balcony</h5>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="hide-if-state-1 hide-if-state-2 amenities">
+                          <h3>Amenities <a class="edit-amenities edit-icon" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#amenities-modal"><i class="fa-solid fa-pen-to-square"></i></a></h3>
+
+                          <div class="row">
+                              <div class="col-sm-12 col-md-6">
+                                  <h5><i class="fa-solid fa-wifi"></i> Wifi</h5>
+                                  <h5><i class="fa-solid fa-kitchen-set"></i> Kitchen</h5>
+                                  <h5><i class="fa-solid fa-laptop"></i> Dedicated workspace</h5>
+                                  <h5><i class="fa-solid fa-tv"></i> TV</h5>
+                                  <h5><i class="fa-solid fa-bath"></i> Bathtub</h5>
+                              </div>
+                              <div class="col-sm-12 col-md-6">
+                                  <h5><i class="fa-solid fa-car"></i> Free parking</h5>
+                                  <h5><i class="fa-solid fa-droplet"></i> Washer</h5>
+                                  <h5><i class="fa-solid fa-fire"></i> Dryer</h5>
+                                  <h5><i class="fa-solid fa-temperature-full"></i> Air conditioning</h5>
+                                  <h5><i class="fa-solid fa-house"></i> Patio or balcony</h5>
+                              </div>
+                          </div>
+                      </section>
+                    </div>
+
+                    <!-- Right Side (browsing user) -->
+
+                    <div class="col-sm-12 col-md-4 hide-if-state-3" id="reserve-listing">
+                      <div>
+                        <h3>$320 CAD <span class="text-muted">per night</span></h3>
+
+                        <div>
+                          <label for="reserve-start-date">Check in</label>
+                          <input id="reserve-start-date" type="date" name="reserve-start-date">
+                        </div>
+                        <div>
+                          <label for="reserve-end-date">Check out</label>
+                          <input id="reserve-end-date" type="date" name="reserve-end-date">
+                        </div>
+
+                        <label for="reserve-guests">Guests</label>
+                        <select id="reserve-guests" name="reserve-guests">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+
+                        <hr>
+
+                        <table class="full-table">
+                          <tr>
+                            <td>Subtotal<span id="reserve-nights"></span></td>
+                            <td id="reserve-subtotal">---</td>
+                          </tr>
+                          <tr class="text-muted">
+                            <td>Cleaning Fee</td>
+                            <td id="reserve-cleaning-fee">---</td>
+                          </tr>
+                          <tr class="text-muted">
+                            <td>Service Fee</td>
+                            <td id="reserve-service-fee">---</td>
+                          </tr>
+                          <tr class="text-muted">
+                            <td>Taxes</td>
+                            <td id="reserve-taxes">---</td>
+                          </tr>
+                          <tr>
+                            <td><h3>Total</h3></td>
+                            <td><h3 id="reserve-total">---</h3></td>
+                          </tr>
+                        </table>
+
+                        <hr>
+
+                        <button id="reserve-book" class="button button-primary d-block w-100 m-0">Book Now</button>
+                      </div>
+
+                    </div>
+
+                    <!-- Right Side (host) -->
+
+                    <div class="col-sm-12 col-md-4 hide-if-state-1 hide-if-state-2"></div>
+
+                </div>
+            </div>
+
+            <!-- Edit Modal -->
+            <div id="edit-modal" class="modal" tabindex="-1">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Edit Content</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <textarea name="" id="" cols="30" rows="20" class="d-block w-100" style="height: 70vh"></textarea>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="button neg" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="button button-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Amenities Modal -->
+            <div id="amenities-modal" class="modal" tabindex="-1">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Edit Amenities</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-6">
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-wifi"></i> Wifi</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-kitchen-set"></i> Kitchen</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-laptop"></i> Dedicated workspace</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-tv"></i> TV</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-bath"></i> Bathtub</label></p>
+                          <p><label><input type="checkbox"> <i class="fa-solid fa-camera"></i> Security Cameras</label></p>
+                          <p><label><input type="checkbox"> <i class="fa-solid fa-water"></i> Waterfront Views</label></p>
+                      </div>
+                      <div class="col-sm-12 col-md-6">
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-car"></i> Free parking</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-droplet"></i> Washer</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-fire"></i> Dryer</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-temperature-full"></i> Air conditioning</label></p>
+                          <p><label><input type="checkbox"> <i class="fa-solid fa-burger"></i> BBQ Grill</label></p>
+                          <p><label><input type="checkbox" checked> <i class="fa-solid fa-house"></i> Patio or balcony</label></p>
+                          <p><label><input type="checkbox"> <i class="fa-solid fa-sailboat"></i> Boat</label></p>
+                      </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="button neg" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="button button-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
         </main>
-        <footer>
-            
-        </footer>
+        <footer class="border-top">
+            <div class="container">
+              <ul class="nav justify-content-center pb-3 mb-3 border-bottom">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">My Rental Units</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Add Rental Unit</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Profile</a></li>
+              </ul>
+              <p class="justify-content-center text-center text-muted">© 2023 Restify</p>
+            </div>
+          </footer>
     </div>
 
 
@@ -44,5 +348,45 @@
         crossorigin="anonymous">
     </script>
     <script src="js/common.js"></script>
+
+    <script>
+      // Generate prices
+      const nightlyCost = 320;
+
+      $("#reserve-end-date, #reserve-start-date").on("change", function(){
+        let date1val = $("#reserve-end-date").val();
+        let date2val = $("#reserve-start-date").val();
+
+        if(date1val == "" || date2val == "") {
+          $("#reserve-nights").html("");
+          $("#reserve-subtotal").html("---");
+          $("#reserve-cleaning-fee").html("---");
+          $("#reserve-service-fee").html("---");
+          $("#reserve-taxes").html("---");
+          $("#reserve-total").html("---");
+
+          return;
+        }
+
+        let date1 = new Date(date1val)
+        let date2 = new Date(date2val)
+
+        let nights = Math.ceil((date1.getTime() - date2.getTime()) / (1000 * 3600 * 24));
+
+        let subtotal = nights * nightlyCost;
+        let cleaningFee = 280;
+        let serviceFee = Math.round(100 * (50 * (nights ** (1/2)))) / 100;
+        let taxes = Math.round((subtotal + cleaningFee + serviceFee) * 0.12 * 100) / 100;
+        let total = subtotal + cleaningFee + serviceFee + taxes;
+
+        $("#reserve-nights").html(" (" + nights + " nights)");
+        $("#reserve-subtotal").html("$" + convertDecimalToPrice(subtotal));
+        $("#reserve-cleaning-fee").html("$" + convertDecimalToPrice(cleaningFee));
+        $("#reserve-service-fee").html("$" + convertDecimalToPrice(serviceFee));
+        $("#reserve-taxes").html("$" + convertDecimalToPrice(taxes));
+        $("#reserve-total").html("$" + convertDecimalToPrice(total));
+      })
+
+    </script>
 </body>
 </html>

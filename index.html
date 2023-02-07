@@ -80,7 +80,7 @@
                 <div class="col-md-6 col-sm-12 text-center text-md-end">
 
                   <div>
-                    <label for="search-location">City</label>
+                    <label for="search-location">Location</label>
                     <input id="search-location" type="text" name="search-location">
                   </div>
 
@@ -89,15 +89,15 @@
                     <label for="search-guests">Guests</label>
                     <select id="search-guests" name="search-guests">
                       <option value="1">1</option>
-                      <option value="1">2</option>
-                      <option value="1">3</option>
-                      <option value="1">4</option>
-                      <option value="1">5</option>
-                      <option value="1">6</option>
-                      <option value="1">7</option>
-                      <option value="1">8</option>
-                      <option value="1">9</option>
-                      <option value="1">10</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
 
                     </select>
                     
@@ -129,9 +129,19 @@
                   </div>
                 </div>
                 <div class="col-sm-12 text-center">
+                  <hr>
                   <div>
-                    <button class="button button-primary">Search</button>
+                    <label for="search-sort-by">Sort By</label>
+                    <select id="search-sort-by" name="search-sort-by">
+                      <option value="distance">Distance</option>
+                      <option value="rating">Rating</option>
+                      <option value="price">Price</option>
+                    </select>
                   </div>
+                  <div>
+                    <button id="search-button" class="button button-primary">Search</button>
+                  </div>
+                  <hr>
                 </div>
               </div>
               <div id="results-container" class="row">
@@ -169,117 +179,123 @@
           location: "Kelowna, Canada",
           distance: 64,
           cost: 200,
-          rating: 4.7
+          rating: "4.7"
         },
         {
-          id: 1,
+          id: 3,
           location: "Vernon, Canada",
           distance: 20,
           cost: 320,
-          rating: 4.9
+          rating: "4.9"
         },
         {
           id: 2,
           location: "Hope, Canada",
           distance: 105,
           cost: 420,
-          rating: 4.5
+          rating: "4.5"
         },
         {
-          id: 3,
+          id: 1,
           location: "Chilliwack, Canada",
           distance: 38,
           cost: 370,
-          rating: 4.4
+          rating: "4.4"
         },
         {
           id: 4,
           location: "Agassiz, Canada",
           distance: 24,
           cost: 230,
-          rating: 4.4
+          rating: "4.4"
         },
         {
           id: 5,
           location: "Penticton, Canada",
           distance: 67,
           cost: 500,
-          rating: 4.7
+          rating: "4.7"
         },
         {
           id: 6,
           location: "Abbotsford, Canada",
           distance: 55,
           cost: 430,
-          rating: 4.9
+          rating: "4.9"
         },
         {
           id: 7,
-          location: "New Westminster, Canada",
+          location: "Burnaby, Canada",
           distance: 323,
           cost: 670,
-          rating: 4.8
+          rating: "4.8"
         },
         {
           id: 8,
-          location: "West Vancouver, Canada",
+          location: "Richmond, Canada",
           distance: 91,
           cost: 250,
-          rating: 4.0
+          rating: "4.0"
         },
         {
           id: 9,
           location: "Nanaimo, Canada",
           distance: 70,
           cost: 380,
-          rating: 4.3
+          rating: "4.3"
         },
         {
           id: 10,
-          location: "Furry Creek, Canada",
+          location: "Delta, Canada",
           distance: 28,
           cost: 520,
-          rating: 4.1
+          rating: "4.1"
         },
         {
           id: 11,
           location: "Golden, Canada",
           distance: 88,
           cost: 450,
-          rating: 4.6
+          rating: "4.6"
         },
         {
           id: 12,
-          location: "Vanderhoof, Canada",
+          location: "Whistler, Canada",
           distance: 283,
           cost: 390,
-          rating: 4.6
+          rating: "4.6"
         },
         {
           id: 13,
           location: "Victoria, Canada",
           distance: 246,
           cost: 410,
-          rating: 3.8
+          rating: "3.8"
         },
         {
           id: 14,
           location: "Kamloops, Canada",
           distance: 653,
           cost: 330,
-          rating: 4.6
+          rating: "4.6"
         }
       ]
 
-      for (const listing of listingData){
+      listingData.sort(function(a, b) { 
+        // Smaller distances first
+        return a.distance - b.distance;
+      })
+
+      function populateListingResults(data) {
+        for (const listing of data){
           $("#results-container").append(`
-          <div class="col-sm-12 col-md-6 col-lg-3">
-            <a href="#">
+          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+            <a href="listing-details.html">
               <div class="card listing-item">
                 <div style="background-image: url('images/houses-exterior/${listing.id + 1}.jpg')" class="card-img-top"></div>
                 <div class="card-body">
                   <h4 class="card-title">${listing.location}</h4>
-                  <p class="text-muted"><i class="fa-solid fa-star"></i>${listing.rating}</p>
+                  <p class="text-muted"><i class="fa-solid fa-star"></i> ${listing.rating}</p>
                   <p class="card-text">${listing.distance}km away</p>
                   <h5 class="card-title">$${listing.cost} CAD / night</h5>
                 </div>
@@ -287,7 +303,59 @@
             </a>
           </div>
           `)
+        }
       }
+
+      populateListingResults(listingData)
+
+
+      // Search Functionality
+      $("#search-button").on("click", function(){
+
+        let sortedProperties = structuredClone(listingData);
+      
+        // Remove all entries without the city name in it
+        let searchLocation = $("#search-location").val();
+        if(searchLocation !== "") {
+          for(let i=sortedProperties.length - 1;i >= 0; i--) {
+            if(!sortedProperties[i].location.toLowerCase().includes(searchLocation.toLowerCase())) {
+              sortedProperties.splice(i, 1);
+            }
+          }
+        }
+
+
+        // Get value to sort properties by
+        let sortHeuristic = $("#search-sort-by").val();
+
+        switch(sortHeuristic) {
+          case "distance":
+            sortedProperties.sort(function(a, b) { 
+              // Smaller distances first
+              return a.distance - b.distance;
+            })
+            break;
+          case "rating":
+            sortedProperties.sort(function(a, b) { 
+              // Higher ratings first
+              return b.rating - a.rating;
+            })
+            break;
+          case "price":
+            sortedProperties.sort(function(a, b) { 
+              // Lower cost first
+              return a.cost - b.cost;
+            })
+            break;
+          default:
+            alert("Unknown sorting heuristic");
+        }
+
+        $("#results-container").empty();
+        populateListingResults(sortedProperties);
+
+      })
+
     </script>
 
 </body>
