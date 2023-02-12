@@ -72,21 +72,22 @@
           <!-- Section 1 -->
             <div class="container">
                 <div class="edit-container">
-                    <h1 class="text-primary">Edit Profile</h1>
-                      <hr>
+                    <h1 class="text-primary hide-if-state-1">Edit Profile</h1>
+                    <h1 class="text-primary hide-if-state-2 hide-if-state-3">View User Profile</h1>
+                    <hr>
                     <div class="row">
                       <div class="col-md-3">
                         <div class="text-center">
                           <img src="https://pyxis.nymag.com/v1/imgs/a93/592/a9fa13bd8541763a579ae0c6d7b8aedc88-14-ryan-reynolds.rsquare.w330.jpg" class="avatar img-circle img-thumbnail" alt="avatar" id="output">
                         </div>
-                        <div class="text-center">
-                          <h7>Upload a different profile picture</h7>
+                        <div class="text-center hide-if-state-1">
+                          <p>Upload a different profile picture</p>
                           
                           <input type="file" class="form-control" type="file" onchange="loadFile(event)">
                         </div>
                       </div>
-                      
-                      <div class="col-lg-9">
+                      <!-- Editable version -->
+                      <div class="col-lg-9 hide-if-state-1">
                         <h3>Personal Information</h3>
                         
                         <form class="form-horizontal" role="form">
@@ -116,32 +117,68 @@
                           </div>
                         </form>
                       </div>
+                      <!-- Read-only version -->
+                      <div class="col-lg-9 hide-if-state-2 hide-if-state-3">
+                        <h3>Personal Information</h3>
+                        
+                        <form class="form-horizontal" role="form">
+                          <div class="form-group">
+                            <label class="col-lg-3 control-label">First name:</label>
+                            <div class="col-lg-9">
+                              <input class="form-control" type="text" value="Ryan" disabled>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-3 control-label">Last name:</label>
+                            <div class="col-lg-9">
+                              <input class="form-control" type="text" value="Reynolds" disabled>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-3 control-label">Phone Number:</label>
+                            <div class="col-lg-9">
+                              <input class="form-control" type="text" value="123-456-7890" disabled>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-lg-3 control-label">Email:</label>
+                            <div class="col-lg-9">
+                              <input class="form-control" type="text" value="ryanreynolds69@gmail.com" disabled>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
                   </div>
                   <div class="row">
                     <div class="col-sm-12 text-center">
                         <div>
-                          <button class="button button-primary">Update Information</button>
+                          <button class="button button-primary hide-if-state-1">Update Information</button>
                         </div>
                       </div>
                   </div>
                 </div>
                 <div class="hide-if-state-1">
-                  <h1 class="text-primary">My Reservations</h1>
+                  <h1 class="text-primary">My Reservations for other Properties</h1>
                     <hr>
-                  <div id="results-container" class="row">
+                  <div id="approved-container" class="row">
                   </div>
-                  </div>
+                </div>
                 <div class="hide-if-state-1 hide-if-state-2">
-                  <h1 class="text-primary">My Reservation Requests</h1>
+                  <h1 class="text-primary">Reservations for my Properties</h1>
                   <hr>
-                  <div id="reservations-container" class="row">
+                  <div id="my-approved-container" class="row">
 
                   </div>
-                  <h1 class="text-primary">My Cancellation Requests</h1>
+                  <h1 class="text-primary">Requests</h1>
                   <hr>
-                  <div id="cancellations-container" class="row">
+                  <div id="requests-container" class="row">
 
                   </div>
+                  <!-- <h2 class="text-primary">Cancellation Requests</h2>
+                  <hr>
+                  <div id="cancellations-container" class="row"> -->
+
+                  <!-- </div> -->
                 </div>
                 <div>
                   <hr>
@@ -171,7 +208,7 @@
                     </div>
                   </div>
                 </div>
-            </div>>
+            </div>
         </main>
         <footer class="border-top">
             <div class="container">
@@ -200,116 +237,181 @@
             image.src = URL.createObjectURL(event.target.files[0]);
         };
 
+        const htmlBase = `
+          <div class="col-sm-12 col-md-6 col-lg-3">
+            <div class="card listing-item">
+              <div style="background-image: url('images/houses-exterior/@ID@.jpg')" class="card-img-top"></div>
+              <div class="card-body">
+                <h4 class="card-title">@TYPE@@LOCATION@</h4>
+                @USER@
+                <p class="card-text">@DATES@</p>
+                <h5 class="card-title">$@COST@ CAD / night</h5>
+                @BUTTONS@
+              </div>
+            </div>  
+          </div>
+        `
+
+        // Data for reservations that I am initiating
         let listingData = [
         {
           id: 0,
           location: "Kelowna, Canada",
           distance: 64,
           cost: 200,
-          rating: 4.7,
-          status: 'pending'
+          rating: "4.7",
+          dates: "2023/06/12 - 2023/06/14",
+          status: "pending",
+          userName: "Johann Frolicht"
         },
         {
-          id: 1,
+          id: 3,
           location: "Vernon, Canada",
           distance: 20,
           cost: 320,
-          rating: 4.9,
-          status: 'present'
+          rating: "4.9",
+          dates: "2023/02/10 - 2023/02/20",
+          status: "present",
+          userName: "Elise Kramer"
+        },
+        {
+          id: 7,
+          location: "Burnaby, Canada",
+          distance: 323,
+          cost: 670,
+          rating: "4.8",
+          dates: "2023/03/25 - 2023/03/29",
+          status: "approved",
+          userName: "Gregor Kleine"
         }]
 
         for (const listing of listingData){
-          if(listing.status=='pending'){
-            $("#results-container").append(`
-          <div class="col-sm-12 col-md-6 col-lg-3">
-            <a href="#">
-              <div class="card listing-item">
-                <div style="background-image: url('images/houses-exterior/${listing.id + 1}.jpg')" class="card-img-top"></div>
-                <div class="card-body">
-                  <h4 class="card-title">${listing.location}</h4>
-                  <p class="text-muted"><i class="fa-solid fa-star"></i>${listing.rating}</p>
-                  <p class="card-text">${listing.distance}km away</p>
-                  <h5 class="card-title">$${listing.cost} CAD / night</h5>
-                  <button class="button button-ternary">Pending</button>
-                </div>
-              </div>  
-            </a>
-          </div>
-          `)
+          if(listing.status == "present") {
+            $("#approved-container").append(htmlBase
+              .replace("@ID@", listing.id + 1)
+              .replace("@TYPE@", "Ongoing: ")
+              .replace("@LOCATION@", listing.location)
+              .replace("@USER@", `<p class='card-text'>Owner: ${listing.userName}</p>`)
+              .replace("@DATES@", listing.dates)
+              .replace("@COST@", listing.cost)
+              .replace("@BUTTONS@", "")
+            )
+          } else if(listing.status == "pending") {
+            $("#approved-container").append(htmlBase
+              .replace("@ID@", listing.id + 1)
+              .replace("@TYPE@", "Pending: ")
+              .replace("@LOCATION@", listing.location)
+              .replace("@USER@", `<p class='card-text'>Owner: ${listing.userName}</p>`)
+              .replace("@DATES@", listing.dates)
+              .replace("@COST@", listing.cost)
+              .replace("@BUTTONS@", ""
+              )
+            ) 
+          }else if(listing.status == "approved") {
+            $("#approved-container").append(htmlBase
+              .replace("@ID@", listing.id + 1)
+              .replace("@TYPE@", "Approved: ")
+              .replace("@LOCATION@", listing.location)
+              .replace("@USER@", `<p class='card-text'>Owner: ${listing.userName}</p>`)
+              .replace("@DATES@", listing.dates)
+              .replace("@COST@", listing.cost)
+              .replace("@BUTTONS@", `
+              <button class="button button-danger">Request Cancellation</button>
+              `
+              )
+            ) 
           }
-          else{
-          $("#results-container").append(`
-            <div class="col-sm-12 col-md-6 col-lg-3">
-              <a href="#">
-                <div class="card listing-item">
-                  <div style="background-image: url('images/houses-exterior/${listing.id + 1}.jpg')" class="card-img-top"></div>
-                  <div class="card-body">
-                    <h4 class="card-title">${listing.location}</h4>
-                    <p class="text-muted"><i class="fa-solid fa-star"></i>${listing.rating}</p>
-                    <p class="card-text">${listing.distance}km away</p>
-                    <h5 class="card-title">$${listing.cost} CAD / night</h5>
-                    <button class="button button-ternary">Cancel</button>
-                  </div>
-                </div>  
-              </a>
-            </div>
-            `)
-          }
-        }
+      }    
 
+        // Data for reservations for my properties
         let reservationData = [
-        {
-          id: 0,
-          location: "Kelowna, Canada",
-          cost: 200,
-          dates: "2023/02/06 - 2023/02/08",
-          status: 'pending'
-        },
-        {
-          id: 1,
-          location: "Vernon, Canada",
-          cost: 320,
-          dates: "2023/02/09 - 2023/02/05",
-          status: 'present'
-        }]
-
+          {
+            id: 2,
+            location: "Hope, Canada",
+            cost: 200,
+            dates: "2023/04/06 - 2023/04/08",
+            status: 'present',
+            userName: "Edsgar Von Meierdijk"
+          },
+          {
+            id: 1,
+            location: "Chilliwack, Canada",
+            cost: 320,
+            dates: "2023/04/09 - 2023/04/05",
+            status: 'approved',
+            userName: "Han Mendelsen"
+          },
+          {
+            id: 4,
+            location: "Agassiz, Canada",
+            cost: 230,
+            dates: "2023/06/01 - 2023/06/06",
+            status: "pending",
+            userName: "Georg Hessberg"
+          },
+          {
+            id: 5,
+            location: "Penticton, Canada",
+            cost: 500,
+            dates: "2023/05/11 - 2023/05/14",
+            status: "request-cancel",
+            userName: "Ludwig Schmitt"
+          }
+        ]
         for (const listing of reservationData){
-          $("#reservations-container").append(`
-          <div class="col-sm-12 col-md-6 col-lg-3">
-            <a href="#">
-              <div class="card listing-item">
-                <div style="background-image: url('images/houses-exterior/${listing.id + 1}.jpg')" class="card-img-top"></div>
-                <div class="card-body">
-                  <h4 class="card-title">${listing.location}</h4>
-                  <p class="card-text">${listing.dates}</p>
-                  <h5 class="card-title">$${listing.cost} CAD / night</h5>
-                  <span><button class="button button-primary">Approve</button>
-                  <button class="button button-ternary">Deny</button><\span>
-                </div>
-              </div>  
-            </a>
-          </div>
-          `)
-      }      
+          if(listing.status == "present") {
+            $("#my-approved-container").append(htmlBase
+            .replace("@ID@", listing.id + 1)
+            .replace("@TYPE@", "Ongoing: ")
+            .replace("@LOCATION@", listing.location)
+            .replace("@USER@", `<p class='card-text'>User: ${listing.userName}</p>`)
+            .replace("@DATES@", listing.dates)
+            .replace("@COST@", listing.cost)
+            .replace("@BUTTONS@", `
+              <button class="button button-danger">Terminate Prematurely</button>
+            `)
+            )
+          }else if(listing.status == "approved") {
+            $("#my-approved-container").append(htmlBase
+            .replace("@ID@", listing.id + 1)
+            .replace("@TYPE@", "Approved: ")
+            .replace("@LOCATION@", listing.location)
+            .replace("@USER@", `<p class='card-text'>User: ${listing.userName}</p>`)
+            .replace("@DATES@", listing.dates)
+            .replace("@COST@", listing.cost)
+            .replace("@BUTTONS@", `
+              <button class="button button-danger">Cancel Reservation</button>
+            `)
+            )
+          } else if(listing.status == "pending") {
+            $("#requests-container").append(htmlBase
+            .replace("@ID@", listing.id + 1)
+            .replace("@TYPE@", "Reservation request: ")
+            .replace("@LOCATION@", listing.location)
+            .replace("@USER@", `<p class='card-text'>User: ${listing.userName}</p>`)
+            .replace("@DATES@", listing.dates)
+            .replace("@COST@", listing.cost)
+            .replace("@BUTTONS@", `
+              <button class="button button-primary">Approve Reservation</button>
+              <button class="button button-danger">Deny Reservation</button>
+            `)
+            )
+          }else if(listing.status == "request-cancel") {
+            $("#requests-container").append(htmlBase
+            .replace("@ID@", listing.id + 1)
+            .replace("@TYPE@", "Cancellation request: ")
+            .replace("@LOCATION@", listing.location)
+            .replace("@USER@", `<p class='card-text'>User: ${listing.userName}</p>`)
+            .replace("@DATES@", listing.dates)
+            .replace("@COST@", listing.cost)
+            .replace("@BUTTONS@", `
+              <button class="button button-ternary">Approve Cancellation</button>
+              <button class="button button-danger">Deny Cancellation</button>
+            `)
+            )
+          }
 
-      for (const listing of reservationData){
-          $("#cancellations-container").append(`
-          <div class="col-sm-12 col-md-6 col-lg-3">
-            <a href="#">
-              <div class="card listing-item">
-                <div style="background-image: url('images/houses-exterior/${listing.id + 1}.jpg')" class="card-img-top"></div>
-                <div class="card-body">
-                  <h4 class="card-title">${listing.location}</h4>
-                  <p class="card-text">${listing.dates}</p>
-                  <h5 class="card-title">$${listing.cost} CAD / night</h5>
-                  <span><button class="button button-primary">Approve</button>
-                  <button class="button button-ternary">Deny</button><\span>
-                </div>
-              </div>  
-            </a>
-          </div>
-          `)
-      }
+      }      
       
       let comments = [
         {
@@ -317,35 +419,14 @@
           name: "Steph Jobless",
           date: "January 2023",
           property: "Kelowna, Canada", 
-          comment: "The property was absolutely stunning. The view was gorgeous and the sunset was breathtaking. The home was cozy and modern and very clean. Lots of walking trails nearby. Looking forward to revisiting in the summer months."
+          comment: "Ryan was clean and communication was organized. You're welcome back any time!"
         }, 
         {
           id: 2,
           name: "Will Doors",
           date: "November 2022",
           property: "Vernon, Canada", 
-          comment: "The view was spectacular. Love the house and the location. Excellent place to stay."
-        },
-        {
-          id: 3,
-          name: "Fej Zebos",
-          date: "September 2022",
-          property: "Kelowna, Canada", 
-          comment: "We had a fantastic time! Would definitely return when the weather warms up to enjoy the water. Beds were very comfy and quiet location which was a nice change."
-        },
-        {
-          id: 4,
-          name: "Elongated Muskrat",
-          date: "August 2022",
-          property: "Vernon, Canada", 
-          comment: "Amazing views, amazing location, amazing all round and beautifully appointed. Would definitely recommend this place to anyone. Will definitely be back."
-        }
-      ]
-      let hostComments = [
-        {
-          replyToId: 1,
-          date: "January 2023",
-          comment: "Thanks for the review Steph! Unfortunately the house will not be available during the summer due to renovations, but feel free to browse other available times."
+          comment: "Ryan followed all our policies and was a pleasure to work with."
         },
       ]
       for(const comment of comments) {
@@ -362,45 +443,9 @@
             <div class="col-sm-12">
               <p class="comment-content">${comment.comment}</p>
             </div>  
-            <div class="hide-if-state-1 hide-if-state-2 reply-container">
-              <button class="button neg" data-bs-toggle="modal" data-bs-target="#comment-modal"><i class="fa-solid fa-reply"></i> Reply</button>  
-            </div>
           </div>
         </div>
         `)
-      }
-      if(hostReplied == 1) {
-        for(const comment of hostComments) {
-          let idToFind = comment.replyToId;
-          $("#comments-container>.comment").each(function(){
-              if($(this).attr("data-comment-id") == idToFind) {
-                  $(this).after(`
-                  <div class="col-sm-12 comment host-reply hide-if-comment-state-0">
-                    <div>
-                      <div class="profile-picture-container profile-picture-small">
-                        <img class="profile-picture" src="https://pyxis.nymag.com/v1/imgs/a93/592/a9fa13bd8541763a579ae0c6d7b8aedc88-14-ryan-reynolds.rsquare.w330.jpg" alt="Host profile picture">
-                      </div>
-                      <div>
-                        <p class="m-0"><strong>Ryan Reynolds</strong></p>
-                        <p>${comment.date}</p>
-                      </div>
-                      <div class="col-sm-12">
-                        <p class="comment-content">${comment.comment}</p>
-                      </div>  
-                      <div class="hide-if-state-1 hide-if-state-3 reply-container">
-                        <button class="button neg" data-bs-toggle="modal" data-bs-target="#comment-modal"><i class="fa-solid fa-reply"></i> Reply</button>  
-                      </div>
-                    </div>
-                  </div>
-                  
-                  
-                  `);
-
-                  // Hode the reply button of the comment
-                  $(this).find(".reply-container").hide();
-              }
-          })
-        }
       }
     </script>
 </body>
