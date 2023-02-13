@@ -83,14 +83,14 @@
                         <div class="text-center hide-if-state-1">
                           <p>Upload a different profile picture</p>
                           
-                          <input type="file" class="form-control" type="file" onchange="loadFile(event)">
+                          <input type="file" class="form-control" onchange="loadFile(event)">
                         </div>
                       </div>
                       <!-- Editable version -->
                       <div class="col-lg-9 hide-if-state-1">
                         <h3>Personal Information</h3>
                         
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal">
                           <div class="form-group">
                             <label class="col-lg-3 control-label">First name:</label>
                             <div class="col-lg-9">
@@ -121,7 +121,7 @@
                       <div class="col-lg-9 hide-if-state-2 hide-if-state-3">
                         <h3>Personal Information</h3>
                         
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal">
                           <div class="form-group">
                             <label class="col-lg-3 control-label">First name:</label>
                             <div class="col-lg-9">
@@ -242,7 +242,8 @@
             <div class="card listing-item">
               <div style="background-image: url('images/houses-exterior/@ID@.jpg')" class="card-img-top"></div>
               <div class="card-body">
-                <h4 class="card-title">@TYPE@@LOCATION@</h4>
+                <h4 class="card-title"><a href="listing-details.html">@LOCATION@</a></h4>
+                <p class="card-text"><strong>@TYPE@</strong></p>
                 @USER@
                 <p class="card-text">@DATES@</p>
                 <h5 class="card-title">$@COST@ CAD / night</h5>
@@ -289,7 +290,7 @@
           if(listing.status == "present") {
             $("#approved-container").append(htmlBase
               .replace("@ID@", listing.id + 1)
-              .replace("@TYPE@", "Ongoing: ")
+              .replace("@TYPE@", "Ongoing")
               .replace("@LOCATION@", listing.location)
               .replace("@USER@", `<p class='card-text'>Owner: ${listing.userName}</p>`)
               .replace("@DATES@", listing.dates)
@@ -299,7 +300,7 @@
           } else if(listing.status == "pending") {
             $("#approved-container").append(htmlBase
               .replace("@ID@", listing.id + 1)
-              .replace("@TYPE@", "Pending: ")
+              .replace("@TYPE@", "Pending")
               .replace("@LOCATION@", listing.location)
               .replace("@USER@", `<p class='card-text'>Owner: ${listing.userName}</p>`)
               .replace("@DATES@", listing.dates)
@@ -310,7 +311,7 @@
           }else if(listing.status == "approved") {
             $("#approved-container").append(htmlBase
               .replace("@ID@", listing.id + 1)
-              .replace("@TYPE@", "Approved: ")
+              .replace("@TYPE@", "Approved")
               .replace("@LOCATION@", listing.location)
               .replace("@USER@", `<p class='card-text'>Owner: ${listing.userName}</p>`)
               .replace("@DATES@", listing.dates)
@@ -362,7 +363,7 @@
           if(listing.status == "present") {
             $("#my-approved-container").append(htmlBase
             .replace("@ID@", listing.id + 1)
-            .replace("@TYPE@", "Ongoing: ")
+            .replace("@TYPE@", "Ongoing")
             .replace("@LOCATION@", listing.location)
             .replace("@USER@", `<p class='card-text'>User: ${listing.userName}</p>`)
             .replace("@DATES@", listing.dates)
@@ -374,7 +375,7 @@
           }else if(listing.status == "approved") {
             $("#my-approved-container").append(htmlBase
             .replace("@ID@", listing.id + 1)
-            .replace("@TYPE@", "Approved: ")
+            .replace("@TYPE@", "Approved")
             .replace("@LOCATION@", listing.location)
             .replace("@USER@", `<p class='card-text'>User: ${listing.userName}</p>`)
             .replace("@DATES@", listing.dates)
@@ -386,7 +387,7 @@
           } else if(listing.status == "pending") {
             $("#requests-container").append(htmlBase
             .replace("@ID@", listing.id + 1)
-            .replace("@TYPE@", "Reservation request: ")
+            .replace("@TYPE@", "Reservation request")
             .replace("@LOCATION@", listing.location)
             .replace("@USER@", `<p class='card-text'>User: ${listing.userName}</p>`)
             .replace("@DATES@", listing.dates)
@@ -399,7 +400,7 @@
           }else if(listing.status == "request-cancel") {
             $("#requests-container").append(htmlBase
             .replace("@ID@", listing.id + 1)
-            .replace("@TYPE@", "Cancellation request: ")
+            .replace("@TYPE@", "Cancellation request")
             .replace("@LOCATION@", listing.location)
             .replace("@USER@", `<p class='card-text'>User: ${listing.userName}</p>`)
             .replace("@DATES@", listing.dates)
