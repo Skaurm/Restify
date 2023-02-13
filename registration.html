@@ -22,7 +22,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/authentication.css">
+    <link rel="stylesheet" href="css/registration.css">
 </head>
 <body>
     <div id="page-container">
@@ -54,41 +54,72 @@
         <main>
           <div class="container">
             <div class="edit-container">
-                <h1 class="text-primary">Log In / Sign Up</h1>
+                <h1 class="text-primary">Create Account</h1>
                   <hr>
                 <div class="row justify-content-center">
-                  <div class="col-lg-9" align="center">
-                    <h2>Log In</h2>
-                    
-                    <div class="form-horizontal" role="form">
-                      <div class="form-group">
-                        <label class="col-lg-9 control-label" align="left">Email:</label>
-                        <div class="col-lg-9">
-                          <input class="form-control" type="text" value="">
-                        </div>
-                      </div>
-                      <div class="row">
-                      </div>
-                      <div class="form-group">
-                        <label class="col-lg-9 control-label" align="left">Password:</label>
-                        <div class="col-lg-9">
-                          <input class="form-control" type="password" value="">
-                        </div>
-                      </div>
-                    </form>
-                    <div class="row">
-                      <a href="#" class="nav-link px-2 text-muted">Forgot Password?</a>  
-                      <a href="registration.html" class="nav-link px-2 text-muted">Create an Account</a>
+                  <div class="col-sm-3">
+                    <div class="text-center">
+                      <img src="images/unknown.avif" class="avatar img-circle img-thumbnail" alt="avatar" id="output">
                     </div>
-                    <div class="row">
-                      <div class="col-lg-12 text-center">
-                        <div>
-                          <a href="index.html"><button class="button button-primary">Log In</button></a>
-                        </div>
-                      </div>
+                    <div class="text-center">
+                      <h7>Upload a profile picture</h7>
+                      
+                      <input type="file" class="form-control" type="file" onchange="loadFile(event)">
                     </div>
                   </div>
-              </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-9" align="center">
+                        <h3>Account Information</h3>
+                        <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-lg-9 control-label" align="left">First name:</label>
+                            <div class="col-lg-9">
+                            <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-9 control-label" align="left">Last name:</label>
+                            <div class="col-lg-9">
+                            <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-9 control-label" align="left">Phone Number:</label>
+                            <div class="col-lg-9">
+                            <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-9 control-label" align="left">Email:</label>
+                            <div class="col-lg-9">
+                            <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-9 control-label" align="left">Confirm Email:</label>
+                            <div class="col-lg-9">
+                            <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-9 control-label" align="left">Password:</label>
+                            <div class="col-lg-9">
+                            <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-9 control-label" align="left">Confirm Password:</label>
+                            <div class="col-lg-9">
+                            <input class="form-control" type="text" value="">
+                            </div>
+                        </div>
+                        </form>
+                        <div class="row">
+                            <a href="index.html"><button class="button button-primary">Create Account</button></a>
+                        </div>
+                    </div>
+                </div>
             </div>
           </div>
         </main>
